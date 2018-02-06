@@ -431,7 +431,7 @@ class Bling extends Component {
 
         if (Bling._adManager._syncCorrelator) {
             if (shouldRefresh) {
-                this.refresh({ changeCorrelator: false });
+                this.refresh({changeCorrelator: false});
             } else if (shouldRender || isScriptLoaded) {
                 Bling._adManager.renderAll();
             }
