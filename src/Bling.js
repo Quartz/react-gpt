@@ -428,20 +428,12 @@ class Bling extends Component {
             this.configureSlot(this._adSlot, nextProps);
         }
 
-        if (Bling._adManager._syncCorrelator) {
-            // renderAll will refresh the correlator once, and then render all the ad units
-            // if we called refresh on some and render on others, the correlators would be out of sync
-            if (shouldRefresh || (shouldRender || isScriptLoaded)) {
-                Bling._adManager.renderAll();
-            }
-        } else {
-            if (shouldRefresh) {
-                this.refresh();
-                return false;
-            }
-            if (shouldRender || isScriptLoaded) {
-                return true;
-            }
+        if (shouldRefresh) {
+            this.refresh();
+            return false;
+        }
+        if (shouldRender || isScriptLoaded) {
+            return true;
         }
 
         return false;
